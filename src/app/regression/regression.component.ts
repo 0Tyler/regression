@@ -86,11 +86,12 @@ export class RegressionComponent implements OnInit {
                 hAxis: { title: 'x', minValue: 0, maxValue: 20 },
                 vAxis: { title: 'y', minValue: 0, maxValue: 20 },
                 pointSize: 5,
+                colors: ['black'],
                 trendlines: {
                     0: {
                         type: 'exponential',
                         visibleInLegend: true,
-                        color: 'green',
+                        color: 'red',
                     }
                 }
             }
