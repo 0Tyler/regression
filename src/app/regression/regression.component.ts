@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
     styleUrls: ['./regression.component.scss']
 })
 export class RegressionComponent implements OnInit {
-    constructor(private http: HttpClient) { }
+
     dataXYs = new Array<DataXY>();
     chart: {
         title: string,
@@ -21,8 +21,20 @@ export class RegressionComponent implements OnInit {
     displayedColumns: string[] = ['x', 'y', 'tsferY'];
     a;
     b;
-
     dataSource = this.dataXYs;
+    constructor(private http: HttpClient) {
+        // init chart
+        this.chart = {
+            title: '',
+            type: 'ScatterChart',
+            columnNames: ['', ''],
+            data: [
+                [0, 0]
+            ],
+            roles: []
+        };
+    }
+
     ngOnInit() {
         this.readExcel();
     }
@@ -35,7 +47,6 @@ export class RegressionComponent implements OnInit {
                 }),
                 error => console.log(error),
                 () => {
-                    console.log(this.dataXYs);
                     this.calculate();
                     this.drawChart();
                 }
@@ -43,12 +54,13 @@ export class RegressionComponent implements OnInit {
     }
 
     arrayToData(arrayXY: string[]) {
-        return new DataXY(
+        const data = new DataXY(
             +arrayXY[0],
             +arrayXY[1],
             +arrayXY[0],
-            Math.log(+arrayXY[1]),
-        );
+            Math.log(+arrayXY[1]));
+        console.log('x =', data.x, 'y =', data.y, 'transfer y =', data.tsferY);
+        return data;
     }
 
     calculate() {

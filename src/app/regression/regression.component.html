@@ -1,39 +1,34 @@
-<div class="chart">
-    <google-chart style='width: 900px; height: 500px;' [title]="chart.title" [type]="chart.type" [data]="chart.data"
-        [columnNames]="chart.columnNames" [roles]="chart.roles" [options]="chart.options">
-    </google-chart>
-</div>
-<div class="divide">
-    <div class="l">
+<!-- <div>
         <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-            <!-- Name Column -->
             <ng-container matColumnDef="x">
                 <mat-header-cell *matHeaderCellDef> x </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.x}} </mat-cell>
             </ng-container>
-
-            <!-- Weight Column -->
             <ng-container matColumnDef="y">
                 <mat-header-cell *matHeaderCellDef> y </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.y}} </mat-cell>
             </ng-container>
-
-            <!-- Symbol Column -->
             <ng-container matColumnDef="tsferY">
                 <mat-header-cell *matHeaderCellDef> ln(y) </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.tsferY}} </mat-cell>
             </ng-container>
-
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
         </mat-table>
-    </div>
-    <div class="r">
-        <div>α ={{a}}</div>
-        <div>β ={{b}}</div>
-    </div>
+</div> -->
+<div class="chart">
+    <google-chart 
+    style='width: 900px; height: 500px;' 
+    [title]="chart.title" 
+    [type]="chart.type" 
+    [data]="chart.data"
+    [columnNames]="chart.columnNames" 
+    [roles]="chart.roles" 
+    [options]="chart.options"
+    >
+    </google-chart>
 </div>
+
 <!-- <mat-grid-list cols="2">
     <mat-grid-tile [colspan]="1" [rowspan]="1">
         
